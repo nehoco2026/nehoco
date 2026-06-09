@@ -1,756 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 24.2.7.2 (Linux)"/>
-	<meta name="created" content="2026-06-09T23:28:36.417722473"/>
-	<meta name="changed" content="2026-06-09T23:29:53.579284806"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEHOCO | New Hope Youth CBO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3c2c, #2a7a3b);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f0c040;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f0c040;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 44, 0.85), rgba(42, 122, 59, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f0c040;
+            color: #1e3c2c;
+            padding: 12px 30px;
+            margin-top: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #e0a800;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
+
+        section:nth-child(even) {
+            background: #f0f4f0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e3c2c;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: #f0c040;
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #1e3c2c;
+            margin-bottom: 15px;
+        }
+
+        .values-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .values-list li {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .leader-table, .member-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .leader-table th, .leader-table td, .member-table th, .member-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .leader-table th {
+            background: #1e3c2c;
+            color: white;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background: #1e3c2c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            color: #f0c040;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0in">
-&lt;!DOCTYPE html&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;html lang=&quot;en&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;meta
-charset=&quot;UTF-8&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;meta
-name=&quot;viewport&quot; content=&quot;width=device-width,
-initial-scale=1.0&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;title&gt;NEHOCO
-| New Hope Youth CBO&lt;/title&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        * {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            margin:
-0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-box-sizing: border-box;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">NE<span>HO</span>CO</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#leadership">Leadership</a>
+                    <a href="#activities">Activities</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        body {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-line-height: 1.6;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#333;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background-color: #f9f9f9;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>New Hope Youth CBO</h1>
+            <p>Empowering disadvantaged youth through skills training, mentorship, and entrepreneurship for economic self-reliance and sustainable development.</p>
+            <a href="#membership" class="btn">Join Us Today</a>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .container {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-max-width: 1200px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            margin:
-auto;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-0 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="about">
+        <div class="container">
+            <h2>About NEHOCO</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>📌 Our Mission</h3>
+                    <p>To foster economic self-reliance, advocate for youth rights and well-being, and expand access to education, healthcare, and social support systems.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Our Vision</h3>
+                    <p>A community where disadvantaged youth are empowered, self-reliant, and actively contributing to sustainable development.</p>
+                </div>
+                <div class="card">
+                    <h3>📍 Our Location</h3>
+                    <p>Ruguru Location, Kiamariga Sub-Location, Nyana Village (near Rware Primary School), Karatina.<br>
+                    <strong>P.O. Box 869-10100, Karatina</strong><br>
+                    Email: nehoco2026@gmail.com</p>
+                </div>
+            </div>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        /* Header &amp;
-Navigation */</p>
-<p style="line-height: 100%; margin-bottom: 0in">        header {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: linear-gradient(135deg, #1e3c2c, #2a7a3b);</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-1rem 0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-position: sticky;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            top: 0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            z-index:
-1000;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+            <h2 style="margin-top: 50px;">Our Core Values</h2>
+            <ul class="values-list">
+                <li>🤝 Mutual Trust & Respect</li>
+                <li>⚖️ Integrity & Accountability</li>
+                <li>👥 Shared Responsibility</li>
+                <li>📏 Discipline & Honesty</li>
+                <li>🗳️ Participation & Involvement</li>
+                <li>🌈 Inclusivity & Diversity</li>
+            </ul>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .logo {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-size: 1.8rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-weight: bold;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-letter-spacing: 1px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="goals">
+        <div class="container">
+            <h2>Our Goals</h2>
+            <div class="grid-3">
+                <div class="card">🚀 Promote youth entrepreneurship & economic independence</div>
+                <div class="card">📚 Empower youth through skills development & mentorship</div>
+                <div class="card">🤝 Mobilize resources & collaborate with stakeholders</div>
+                <div class="card">🏥 Promote access to education & health services</div>
+                <div class="card">📢 Advocate for youth rights & social wellbeing</div>
+            </div>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .logo span {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#f0c040;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="leadership">
+        <div class="container">
+            <h2>Leadership & Office Bearers</h2>
+            <table class="leader-table">
+                <thead>
+                    <tr><th>Position</th><th>Name</th><th>Phone</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Chairperson</td><td>Eunice Wanjiru Kahoi</td><td>0722 597670</td></tr>
+                    <tr><td>Vice Chairperson</td><td>Jackson Warutere Wangombe</td><td>0111 600546</td></tr>
+                    <tr><td>Secretary</td><td>Brian Kikenyi Simiyu</td><td>0796 622597</td></tr>
+                    <tr><td>Vice Secretary</td><td>Mercy Mulinge Njogu</td><td>0112 556459</td></tr>
+                    <tr><td>Treasurer</td><td>John Maina Kamunyo</td><td>0706 243036</td></tr>
+                    <tr><td>Committee Member</td><td>Salome Muthoni Muriithi</td><td>0741 945551</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        nav {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-flex;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-justify-content: space-between;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-align-items: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-flex-wrap: wrap;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="activities">
+        <div class="container">
+            <h2>Our Activities</h2>
+            <div class="grid-3">
+                <div class="card">🛠️ Skills training & capacity building workshops</div>
+                <div class="card">💼 Entrepreneurship & business development programs</div>
+                <div class="card">🧭 Mentorship & networking opportunities</div>
+                <div class="card">📣 Advocacy for youth rights & welfare</div>
+                <div class="card">🤝 Resource mobilization & partnerships</div>
+                <div class="card">🎓 Education, health & social welfare initiatives</div>
+            </div>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .nav-links {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-flex;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            gap:
-1.5rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-flex-wrap: wrap;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="membership">
+        <div class="container">
+            <h2>Become a Member</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>✅ Eligibility</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Kenyan citizen, 18+ years</li>
+                        <li>Sound mind & good character</li>
+                        <li>No criminal conviction (dishonesty)</li>
+                        <li>Share vision of empowering youth</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📝 How to Join</h3>
+                    <ol style="margin-left: 20px;">
+                        <li>Submit written application to Executive Committee</li>
+                        <li>Vetting & 2/3 members approval</li>
+                        <li>Pay non-refundable Ksh 200 registration fee</li>
+                        <li>Receive membership certificate</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>💰 Member Contributions</h3>
+                    <p>Monthly contributions as determined by the group. Failure to remit for 3 consecutive months may lead to disciplinary action.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .nav-links a
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-decoration: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-weight: 500;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-transition: color 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>📍 Address:</strong> P.O. Box 869-10100, Karatina, Kenya</p>
+                <p><strong>📍 Physical Location:</strong> Nyana Village, near Rware Primary School, Kiamariga Sub-Location, Ruguru Location</p>
+                <p><strong>📧 Email:</strong> nehoco2026@gmail.com</p>
+                <p><strong>📞 Chairperson (Eunice):</strong> 0722 597670</p>
+                <p><strong>📞 Secretary (Brian):</strong> 0796 622597</p>
+                <p><strong>🏦 Bank:</strong> Family Bank, Karatina Branch (4 signatories required per transaction)</p>
+            </div>
+        </div>
+    </section>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .nav-links
-a:hover {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#f0c040;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        /* Hero
-Section */</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .hero {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: linear-gradient(rgba(30, 60, 44, 0.85), rgba(42, 122, 59,
-0.85)),
-url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200')
-center/cover no-repeat;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-align: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-100px 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .hero h1 {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-size: 3rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-bottom: 1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .hero p {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-size: 1.2rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-max-width: 700px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            margin:
-auto;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .btn {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-inline-block;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #f0c040;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#1e3c2c;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-12px 30px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-top: 25px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-decoration: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-weight: bold;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-radius: 30px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-transition: background 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .btn:hover {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #e0a800;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        /* Sections
-*/</p>
-<p style="line-height: 100%; margin-bottom: 0in">        section {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-60px 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-section:nth-child(even) {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #f0f4f0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        h2 {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-align: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#1e3c2c;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-bottom: 40px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-font-size: 2rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-position: relative;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        h2::after {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            content:
-'';</p>
-<p style="line-height: 100%; margin-bottom: 0in">            width:
-60px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            height:
-3px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #f0c040;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-block;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            margin:
-10px auto 0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .grid-3 {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-grid;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));</p>
-<p style="line-height: 100%; margin-bottom: 0in">            gap:
-30px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-top: 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .card {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-25px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-radius: 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-box-shadow: 0 5px 15px rgba(0,0,0,0.1);</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-transition: transform 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .card:hover
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-transform: translateY(-5px);</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .card h3 {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#1e3c2c;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-bottom: 15px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .values-list
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-list-style: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            display:
-flex;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-flex-wrap: wrap;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            gap:
-15px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-justify-content: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        .values-list
-li {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-10px 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-radius: 30px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-box-shadow: 0 2px 8px rgba(0,0,0,0.1);</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-.leader-table, .member-table {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            width:
-100%;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-collapse: collapse;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-radius: 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-overflow: hidden;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-box-shadow: 0 5px 15px rgba(0,0,0,0.1);</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-.leader-table th, .leader-table td, .member-table th, .member-table
-td {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-12px 15px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-align: left;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-bottom: 1px solid #ddd;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-.leader-table th {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #1e3c2c;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-.contact-info {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-25px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-border-radius: 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-align: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        footer {</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-background: #1e3c2c;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-align: center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            padding:
-30px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-margin-top: 40px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-.social-links a {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            color:
-#f0c040;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-text-decoration: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            margin:
-0 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">        @media
-(max-width: 768px) {</p>
-<p style="line-height: 100%; margin-bottom: 0in">            nav {</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-flex-direction: column;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                gap:
-15px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            }</p>
-<p style="line-height: 100%; margin-bottom: 0in">            .hero h1
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-font-size: 2rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            }</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;header&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;nav&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;logo&quot;&gt;NE&lt;span&gt;HO&lt;/span&gt;CO&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;nav-links&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#leadership&quot;&gt;Leadership&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#activities&quot;&gt;Activities&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#membership&quot;&gt;Membership&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/nav&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/header&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;home&quot; class=&quot;hero&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;h1&gt;New
-Hope Youth CBO&lt;/h1&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;p&gt;Empowering disadvantaged youth through skills training,
-mentorship, and entrepreneurship for economic self-reliance and
-sustainable development.&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;a
-href=&quot;#membership&quot; class=&quot;btn&quot;&gt;Join Us
-Today&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;about&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;h2&gt;About NEHOCO&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;grid-3&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;📌 Our Mission&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;p&gt;To foster economic self-reliance, advocate for youth rights
-and well-being, and expand access to education, healthcare, and
-social support systems.&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;🎯 Our Vision&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;p&gt;A community where disadvantaged youth are empowered,
-self-reliant, and actively contributing to sustainable
-development.&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;📍 Our Location&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;p&gt;Ruguru Location, Kiamariga Sub-Location, Nyana Village (near
-Rware Primary School), Karatina.&lt;br&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;strong&gt;P.O. Box 869-10100, Karatina&lt;/strong&gt;&lt;br&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-Email: nehoco2026@gmail.com&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;h2
-style=&quot;margin-top: 50px;&quot;&gt;Our Core Values&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;ul
-class=&quot;values-list&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;🤝 Mutual Trust &amp; Respect&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;⚖️ Integrity &amp; Accountability&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;👥 Shared Responsibility&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;📏 Discipline &amp; Honesty&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;🗳️ Participation &amp; Involvement&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;li&gt;🌈 Inclusivity &amp; Diversity&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/ul&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;goals&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;h2&gt;Our
-Goals&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;grid-3&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🚀 Promote youth entrepreneurship &amp;
-economic independence&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;📚 Empower youth through skills
-development &amp; mentorship&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🤝 Mobilize resources &amp; collaborate
-with stakeholders&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🏥 Promote access to education &amp;
-health services&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;📢 Advocate for youth rights &amp; social
-wellbeing&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;leadership&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;h2&gt;Leadership &amp; Office Bearers&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;table
-class=&quot;leader-table&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;thead&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;th&gt;Position&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Phone&lt;/th&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/thead&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;tbody&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Chairperson&lt;/td&gt;&lt;td&gt;Eunice Wanjiru
-Kahoi&lt;/td&gt;&lt;td&gt;0722 597670&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Vice Chairperson&lt;/td&gt;&lt;td&gt;Jackson
-Warutere Wangombe&lt;/td&gt;&lt;td&gt;0111 600546&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Secretary&lt;/td&gt;&lt;td&gt;Brian Kikenyi
-Simiyu&lt;/td&gt;&lt;td&gt;0796 622597&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Vice Secretary&lt;/td&gt;&lt;td&gt;Mercy Mulinge
-Njogu&lt;/td&gt;&lt;td&gt;0112 556459&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Treasurer&lt;/td&gt;&lt;td&gt;John Maina
-Kamunyo&lt;/td&gt;&lt;td&gt;0706 243036&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;tr&gt;&lt;td&gt;Committee Member&lt;/td&gt;&lt;td&gt;Salome
-Muthoni Muriithi&lt;/td&gt;&lt;td&gt;0741 945551&lt;/td&gt;&lt;/tr&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/tbody&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/table&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;activities&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;h2&gt;Our
-Activities&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;grid-3&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🛠️ Skills training &amp; capacity
-building workshops&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;💼 Entrepreneurship &amp; business
-development programs&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🧭 Mentorship &amp; networking
-opportunities&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;📣 Advocacy for youth rights &amp;
-welfare&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🤝 Resource mobilization &amp;
-partnerships&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;🎓 Education, health &amp; social welfare
-initiatives&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;membership&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;h2&gt;Become a Member&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;grid-3&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;✅ Eligibility&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;ul style=&quot;margin-left: 20px;&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Kenyan citizen, 18+ years&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Sound mind &amp; good character&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;No criminal conviction (dishonesty)&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Share vision of empowering youth&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;/ul&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;📝 How to Join&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;ol style=&quot;margin-left: 20px;&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Submit written application to Executive Committee&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Vetting &amp; 2/3 members approval&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Pay non-refundable Ksh 200 registration fee&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                    
-   &lt;li&gt;Receive membership certificate&lt;/li&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;/ol&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                &lt;div
-class=&quot;card&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;h3&gt;💰 Member Contributions&lt;/h3&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">                   
-&lt;p&gt;Monthly contributions as determined by the group. Failure to
-remit for 3 consecutive months may lead to disciplinary action.&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;section
-id=&quot;contact&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;h2&gt;Contact Us&lt;/h2&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;contact-info&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;📍 Address:&lt;/strong&gt; P.O. Box
-869-10100, Karatina, Kenya&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;📍 Physical Location:&lt;/strong&gt; Nyana
-Village, near Rware Primary School, Kiamariga Sub-Location, Ruguru
-Location&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;📧 Email:&lt;/strong&gt;
-nehoco2026@gmail.com&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;📞 Chairperson (Eunice):&lt;/strong&gt; 0722
-597670&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;📞 Secretary (Brian):&lt;/strong&gt; 0796
-622597&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">               
-&lt;p&gt;&lt;strong&gt;🏦 Bank:&lt;/strong&gt; Family Bank,
-Karatina Branch (4 signatories required per transaction)&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/section&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;footer&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">           
-&lt;p&gt;&amp;copy; 2026 New Hope Youth Community Based Organization
-(NEHOCO) | Empowering Youth, Building Futures&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;p
-style=&quot;margin-top: 10px;&quot;&gt;📍 Karatina, Kenya | 📧
-nehoco2026@gmail.com&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/footer&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/html&gt;</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 New Hope Youth Community Based Organization (NEHOCO) | Empowering Youth, Building Futures</p>
+            <p style="margin-top: 10px;">📍 Karatina, Kenya | 📧 nehoco2026@gmail.com</p>
+        </div>
+    </footer>
 </body>
 </html>
