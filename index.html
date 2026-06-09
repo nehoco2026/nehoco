@@ -12,30 +12,19 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #1a1a2e;
-            background: #f5f7f5;
+            background: #f8f9fa;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        /* Header - Dark for contrast */
-        header {
+        /* Navigation */
+        nav {
             background: #0a2b1a;
-            color: white;
-            padding: 1rem 0;
+            padding: 1rem 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid #ffcc00;
-        }
-
-        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,6 +35,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            color: white;
         }
 
         .logo span {
@@ -55,7 +45,7 @@
         .logo small {
             font-size: 0.7rem;
             display: block;
-            color: #cccccc;
+            color: #ccc;
         }
 
         .nav-links {
@@ -68,14 +58,14 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: #ffcc00;
         }
 
-        .donate-nav-btn {
+        .donate-btn {
             background: #ffcc00;
             color: #0a2b1a !important;
             padding: 8px 20px;
@@ -83,17 +73,12 @@
             font-weight: bold;
         }
 
-        .donate-nav-btn:hover {
-            background: #ffdd44;
-            transform: scale(1.02);
-        }
-
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0a2b1a 0%, #1a5a38 100%);
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
         }
 
         .hero h1 {
@@ -101,7 +86,7 @@
             margin-bottom: 1rem;
         }
 
-        .hero h1 .highlight {
+        .hero h1 span {
             color: #ffcc00;
         }
 
@@ -109,23 +94,26 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 20px auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 35px;
-            margin: 10px;
+            padding: 12px 30px;
+            margin: 0 10px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
+            border-radius: 40px;
             transition: all 0.3s;
-            cursor: pointer;
         }
 
         .btn-primary {
             background: #ffcc00;
             color: #0a2b1a;
-            font-weight: bold;
         }
 
         .btn-primary:hover {
@@ -136,7 +124,6 @@
         .btn-outline {
             border: 2px solid white;
             color: white;
-            background: transparent;
         }
 
         .btn-outline:hover {
@@ -144,246 +131,247 @@
             color: #0a2b1a;
         }
 
-        /* Stats Section - Dark background with clear numbers */
-        .impact-stats {
-            background: #0a2b1a;
-            color: white;
-            padding: 50px 20px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 204, 0, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #ffcc00;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            margin-top: 10px;
-            color: #ffffff;
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 5%;
         }
 
         /* Section Headers */
         section {
-            padding: 60px 20px;
+            padding: 60px 0;
         }
 
-        section:nth-child(even) {
-            background: #ffffff;
-        }
-
-        h2 {
+        .section-title {
             text-align: center;
-            color: #0a2b1a;
-            margin-bottom: 45px;
             font-size: 2.2rem;
+            color: #0a2b1a;
+            margin-bottom: 40px;
         }
 
-        h2::after {
+        .section-title::after {
             content: '';
-            width: 80px;
-            height: 4px;
+            width: 70px;
+            height: 3px;
             background: #ffcc00;
             display: block;
-            margin: 15px auto 0;
-            border-radius: 2px;
+            margin: 12px auto 0;
         }
 
-        .grid-3 {
+        /* Card Grid (WANTAM Style) */
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: #ffffff;
-            padding: 30px 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            border-top: 4px solid #ffcc00;
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            color: #0a2b1a;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: #333333;
-            line-height: 1.6;
-        }
-
-        /* Donor Box - Bold and Clear */
-        .donor-box {
-            background: #ffcc00;
-            color: #0a2b1a;
-            border-radius: 20px;
-            padding: 45px;
-            text-align: center;
-        }
-
-        .donor-box h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .mpesa-section {
-            background: #0a2b1a;
-            color: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-top: 25px;
-        }
-
-        .mpesa-code {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: #ffcc00;
-            color: #0a2b1a;
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 15px;
-            letter-spacing: 3px;
-            margin: 20px 0;
-            font-family: monospace;
-        }
-
-        .bank-details {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 25px;
-            text-align: left;
-        }
-
-        .bank-details h4 {
-            color: #0a2b1a;
-            margin-bottom: 15px;
-        }
-
-        /* Story Cards */
-        .story-card {
+        .service-card {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .story-content {
-            padding: 25px;
-        }
-
-        .story-quote {
-            font-style: italic;
-            color: #444;
-            margin: 15px 0;
-            background: #f5f7f5;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .story-author {
-            font-weight: bold;
-            color: #1a5a38;
-        }
-
-        .testimonial {
-            background: #0a2b1a;
-            color: white;
+            border-radius: 16px;
+            padding: 30px 25px;
             text-align: center;
-            padding: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #ffcc00;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #0a2b1a;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Impact Stats Bar (WANTAM Style) */
+        .impact-bar {
+            background: #0a2b1a;
+            padding: 50px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Gallery Section - IMAGE UPLOAD AREA */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            background: #eef2f0;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .upload-area {
+            background: #f0f4f0;
+            border: 2px dashed #1a5a38;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .upload-label {
+            background: #1a5a38;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* Video Gallery */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: #0a2b1a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #1a5a38;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .video-info {
+            padding: 15px;
+            color: white;
+        }
+
+        .video-info h4 {
+            margin-bottom: 5px;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: #f0f4f0;
             border-radius: 20px;
+            padding: 40px;
+            text-align: center;
             margin-top: 40px;
         }
 
         .testimonial-text {
             font-size: 1.2rem;
+            font-style: italic;
             max-width: 800px;
             margin: 0 auto 20px;
-            line-height: 1.6;
+            color: #333;
         }
 
         .testimonial-author {
-            color: #ffcc00;
             font-weight: bold;
+            color: #1a5a38;
         }
 
-        /* Newsletter */
-        .newsletter {
-            background: #1a5a38;
-            color: white;
-            text-align: center;
-            padding: 45px;
+        /* Donation Section */
+        .donation-section {
+            background: linear-gradient(135deg, #ffcc00, #ffaa00);
             border-radius: 20px;
+            padding: 45px;
+            text-align: center;
         }
 
-        .newsletter input {
-            padding: 14px 20px;
-            width: 300px;
-            max-width: 70%;
-            border: none;
-            border-radius: 50px;
-            margin: 15px 10px 0 0;
+        .mpesa-box {
+            background: #0a2b1a;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            color: white;
         }
 
-        .newsletter button {
-            padding: 14px 30px;
+        .mpesa-code {
+            font-size: 2rem;
+            font-weight: bold;
             background: #ffcc00;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
             color: #0a2b1a;
-            cursor: pointer;
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 12px;
+            margin: 15px 0;
         }
 
-        /* Leadership Cards */
-        .leader-card {
-            background: #ffffff;
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
             padding: 25px;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-        }
-
-        .leader-card h3 {
-            color: #0a2b1a;
-            margin-bottom: 10px;
-        }
-
-        .leader-card .position {
-            color: #ff8c00;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
         }
 
         /* Footer */
@@ -392,6 +380,7 @@
             color: white;
             text-align: center;
             padding: 40px 20px;
+            margin-top: 40px;
         }
 
         /* Responsive */
@@ -402,293 +391,394 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            .stat-number {
-                font-size: 2.5rem;
+            .section-title {
+                font-size: 1.8rem;
             }
             .mpesa-code {
-                font-size: 1.5rem;
-                padding: 10px 20px;
-            }
-            .donor-box {
-                padding: 25px;
+                font-size: 1.3rem;
+                padding: 8px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">NE<span>HO</span>CO<small>New Hope Youth CBO</small></div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#donate">Donate</a>
-                    <a href="#activities">Activities</a>
-                    <a href="#stories">Success Stories</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#donate" class="donate-nav-btn">💛 DONATE</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Empowering <span class="highlight">Kenya's Youth</span><br>Building <span class="highlight">Tomorrow's Leaders</span></h1>
-            <p>Every donation creates opportunity. Every contribution changes a life. Join us in transforming disadvantaged youth into self-reliant, successful entrepreneurs.</p>
-            <div>
-                <a href="#donate" class="btn btn-primary">💛 DONATE NOW</a>
-                <a href="#about" class="btn btn-outline">📖 OUR STORY</a>
+<!-- Navigation -->
+<nav>
+    <div class="logo">NE<span>HO</span>CO<small>New Hope Youth CBO</small></div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">What We Do</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+        <a href="#donate" class="donate-btn">💛 DONATE</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Empowering <span>Kenya's Youth</span><br>Building <span>Tomorrow's Leaders</span></h1>
+        <p>NEHOCO provides skills training, mentorship, and entrepreneurship opportunities to disadvantaged youth in Karatina and beyond.</p>
+        <div class="hero-buttons">
+            <a href="#donate" class="btn btn-primary">💛 Support Our Mission</a>
+            <a href="#about" class="btn btn-outline">📖 Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Stats -->
+<div class="impact-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Youth Empowered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Businesses Started</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Skills Programs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Community Support</div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Impact Stats -->
-    <section class="impact-stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Active Members</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Businesses Started</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Partner Organizations</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Funds to Programs</div>
-                </div>
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To foster economic self-reliance among disadvantaged youth through skills training, mentorship, and entrepreneurship opportunities.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👁️</div>
+                <h3>Our Vision</h3>
+                <p>A Kenya where every young person has the opportunity to succeed, regardless of their background.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💚</div>
+                <h3>Our Values</h3>
+                <p>Integrity, accountability, inclusivity, discipline, and shared responsibility.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>Who We Are</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3>Our Mission</h3>
-                    <p>To foster economic self-reliance among disadvantaged youth through skills training, mentorship, and entrepreneurship opportunities in Karatina and beyond.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">👁️</div>
-                    <h3>Our Vision</h3>
-                    <p>A Kenya where every young person has the opportunity to succeed, regardless of their background or circumstances.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💚</div>
-                    <h3>Our Values</h3>
-                    <p>Integrity, accountability, inclusivity, discipline, and shared responsibility guide everything we do.</p>
-                </div>
+<!-- Services / What We Do -->
+<section id="services" style="background: #f0f4f0;">
+    <div class="container">
+        <h2 class="section-title">What We Do</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Skills Training</h3>
+                <p>Tailoring, carpentry, IT, agribusiness, and vocational skills.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Mentorship</h3>
+                <p>One-on-one guidance connecting youth with successful professionals.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Entrepreneurship</h3>
+                <p>Business training, startup support, and ongoing guidance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📢</div>
+                <h3>Advocacy</h3>
+                <p>Fighting for youth rights, education, healthcare, and social support.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Partnerships</h3>
+                <p>Collaborating with government, NGOs, and private sector.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">❤️</div>
+                <h3>Social Support</h3>
+                <p>Healthcare referrals, mental health support, and community building.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Why Donate Section -->
-    <section style="background: #ffffff;">
-        <div class="container">
-            <h2>Your Donation. Real Impact.</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">📚</div>
-                    <h3>KSh 500</h3>
-                    <p>Provides training materials for one youth for one month</p>
-                    <p style="margin-top: 10px; color: #ff8c00; font-weight: bold;">▼ Less than a meal out</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💼</div>
-                    <h3>KSh 2,000</h3>
-                    <p>Small business starter kit for a young entrepreneur</p>
-                    <p style="margin-top: 10px; color: #ff8c00; font-weight: bold;">▼ Seeds a lifetime of independence</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎓</div>
-                    <h3>KSh 10,000</h3>
-                    <p>Full vocational training program for one youth</p>
-                    <p style="margin-top: 10px; color: #ff8c00; font-weight: bold;">▼ Transforms a life forever</p>
-                </div>
+<!-- IMAGE GALLERY SECTION - WITH UPLOAD -->
+<section id="gallery">
+    <div class="container">
+        <h2 class="section-title">📸 Photo Gallery</h2>
+        <div class="gallery-grid" id="imageGallery">
+            <!-- Default placeholder images - replace with your own -->
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x400/1a5a38/white?text=NEHOCO+Training" alt="Skills Training">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x400/0a2b1a/white?text=Youth+Empowerment" alt="Youth Empowerment">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x400/1a5a38/white?text=Community+Event" alt="Community Event">
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/400x400/0a2b1a/white?text=Mentorship+Session" alt="Mentorship">
             </div>
         </div>
-    </section>
 
-    <!-- DONATION SECTION - Most Important -->
-    <section id="donate" style="background: #f0f4f0;">
-        <div class="container">
-            <div class="donor-box">
-                <h3>💛 YOUR SUPPORT CHANGES LIVES 💛</h3>
-                <p style="font-size: 1.2rem; margin-bottom: 20px;">100% of donations go directly to youth programs</p>
-                
-                <div class="mpesa-section">
-                    <h3>🇰🇪 Donate via M-Pesa</h3>
-                    <div class="mpesa-code">
-                        Paybill: 123456
-                    </div>
-                    <p style="margin-top: 10px;"><strong>Account Number:</strong> NEHOCO + Your Name</p>
-                    <p style="margin-top: 5px; font-size: 0.9rem;">Example: NEHOCO Jane Wanjiku</p>
-                </div>
-
-                <div class="bank-details">
-                    <h4>🏦 Bank Transfer Details</h4>
-                    <p><strong>Bank:</strong> Family Bank, Karatina Branch</p>
-                    <p><strong>Account Name:</strong> New Hope Youth Community Based Organization</p>
-                    <p><strong>Account Number:</strong> Contact us for details</p>
-                    <p><strong>Branch Code:</strong> 123</p>
-                </div>
-
-                <a href="#contact" class="btn btn-primary" style="background: #0a2b1a; color: #ffcc00; margin-top: 20px; display: inline-block;">📞 Contact for Donation Receipt</a>
-            </div>
+        <!-- Image Upload Area -->
+        <div class="upload-area">
+            <h3>📤 Upload New Photos</h3>
+            <p>Select images to add to the gallery (JPG, PNG, GIF)</p>
+            <input type="file" id="imageUpload" accept="image/*" multiple style="display: none;">
+            <label for="imageUpload" class="upload-label">📁 Choose Photos</label>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">Click above to upload photos from your computer</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Activities -->
-    <section id="activities">
-        <div class="container">
-            <h2>Our Activities</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🛠️</div>
-                    <h3>Skills Training</h3>
-                    <p>Tailoring, carpentry, IT, agribusiness, and vocational skills for employability.</p>
+<!-- VIDEO GALLERY SECTION -->
+<section id="videos" style="background: #f0f4f0;">
+    <div class="container">
+        <h2 class="section-title">🎥 Video Gallery</h2>
+        <div class="video-grid" id="videoGallery">
+            <!-- Default video placeholders -->
+            <div class="video-card">
+                <div class="video-thumb" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    ▶️
                 </div>
-                <div class="card">
-                    <div class="card-icon">🧠</div>
-                    <h3>Mentorship</h3>
-                    <p>One-on-one and group mentorship connecting youth with successful professionals.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📢</div>
-                    <h3>Advocacy</h3>
-                    <p>Fighting for youth rights, education, healthcare, and social support.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3>Entrepreneurship</h3>
-                    <p>Business training, startup support, and ongoing guidance for young entrepreneurs.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🌍</div>
-                    <h3>Partnerships</h3>
-                    <p>Collaborating with government, NGOs, and private sector to maximize impact.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">❤️</div>
-                    <h3>Social Support</h3>
-                    <p>Healthcare referrals, mental health support, and community building.</p>
+                <div class="video-info">
+                    <h4>Skills Training Session</h4>
+                    <p>Watch our youth learning tailoring skills</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Success Stories -->
-    <section id="stories" style="background: #f0f4f0;">
-        <div class="container">
-            <h2>Success Stories</h2>
-            <div class="grid-3">
-                <div class="story-card">
-                    <div class="story-content">
-                        <div style="font-size: 3rem;">👩‍🍳</div>
-                        <h3>Jane's Catering Business</h3>
-                        <p class="story-quote">"NEHOCO gave me training and startup capital. Now I employ two other youth from my village."</p>
-                        <p class="story-author">— Jane W., Karatina</p>
-                    </div>
+            <div class="video-card">
+                <div class="video-thumb" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    ▶️
                 </div>
-                <div class="story-card">
-                    <div class="story-content">
-                        <div style="font-size: 3rem;">👨‍🌾</div>
-                        <h3>Peter's Agri-business</h3>
-                        <p class="story-quote">"From a farmhand to owning my own vegetable supply business. NEHOCO believed in me."</p>
-                        <p class="story-author">— Peter M., Ruguru</p>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <div class="story-content">
-                        <div style="font-size: 3rem;">💻</div>
-                        <h3>Mary's IT Career</h3>
-                        <p class="story-quote">"Completed digital skills training. Now I work remotely for a Nairobi company."</p>
-                        <p class="story-author">— Mary N., Kiamariga</p>
-                    </div>
+                <div class="video-info">
+                    <h4>Graduation Ceremony</h4>
+                    <p>Celebrating our first cohort of graduates</p>
                 </div>
             </div>
-
-            <div class="testimonial">
-                <p class="testimonial-text">"NEHOCO is not just an organization — it's a lifeline for youth who have been left behind. Every shilling donated creates real, measurable change."</p>
-                <p class="testimonial-author">— Eunice Wanjiru Kahoi, Chairperson, NEHOCO</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership -->
-    <section id="leadership">
-        <div class="container">
-            <h2>Our Leadership</h2>
-            <div class="grid-3">
-                <div class="leader-card">
-                    <div style="font-size: 3rem;">👩‍💼</div>
-                    <h3>Eunice Wanjiru Kahoi</h3>
-                    <p class="position">Chairperson</p>
-                    <p>📞 0722 597670</p>
+            <div class="video-card">
+                <div class="video-thumb" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    ▶️
                 </div>
-                <div class="leader-card">
-                    <div style="font-size: 3rem;">👨‍💼</div>
-                    <h3>Brian Kikenyi Simiyu</h3>
-                    <p class="position">Secretary</p>
-                    <p>📞 0796 622597</p>
-                </div>
-                <div class="leader-card">
-                    <div style="font-size: 3rem;">👨‍💼</div>
-                    <h3>John Maina Kamunyo</h3>
-                    <p class="position">Treasurer</p>
-                    <p>📞 0706 243036</p>
+                <div class="video-info">
+                    <h4>Community Outreach</h4>
+                    <p>NEHOCO team visiting local families</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" style="background: #f0f4f0;">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="grid-3">
-                <div class="contact-info">
-                    <div style="font-size: 2rem;">📍</div>
-                    <h3>Visit Us</h3>
-                    <p>Nyana Village, near Rware Primary School</p>
-                    <p>Ruguru Location, Kiamariga Sub-Location</p>
-                    <p>Karatina, Kenya</p>
+        <!-- Video Upload Area -->
+        <div class="upload-area" style="margin-top: 30px;">
+            <h3>📤 Upload New Videos</h3>
+            <p>You can upload videos to YouTube and paste the link below</p>
+            <input type="text" id="videoLinkInput" placeholder="Paste YouTube or Vimeo link here" style="width: 70%; padding: 12px; border-radius: 30px; border: 1px solid #ccc; margin: 15px 0;">
+            <button onclick="addVideo()" class="upload-label" style="border: none;">➕ Add Video</button>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">For now, upload videos to YouTube first, then paste the link here</p>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal (for playing) -->
+<div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="position: relative; width: 80%; max-width: 800px;">
+        <span onclick="closeModal()" style="position: absolute; top: -40px; right: 0; color: white; font-size: 30px; cursor: pointer;">&times;</span>
+        <iframe id="videoFrame" width="100%" height="400" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
+    </div>
+</div>
+
+<!-- Testimonial -->
+<div class="container">
+    <div class="testimonial">
+        <p class="testimonial-text">"NEHOCO is not just an organization — it's a lifeline for youth who have been left behind. Every shilling donated creates real, measurable change."</p>
+        <p class="testimonial-author">— Eunice Wanjiru Kahoi, Chairperson, NEHOCO</p>
+    </div>
+</div>
+
+<!-- Donation Section -->
+<section id="donate">
+    <div class="container">
+        <div class="donation-section">
+            <h2 style="color: #0a2b1a;">💛 Your Support Changes Lives</h2>
+            <p style="font-size: 1.1rem;">Every contribution, big or small, creates opportunity for a young person in need.</p>
+            
+            <div class="mpesa-box">
+                <h3>🇰🇪 Donate via M-Pesa (Kenya)</h3>
+                <div class="mpesa-code">
+                    Paybill: <strong>123456</strong>
                 </div>
-                <div class="contact-info">
-                    <div style="font-size: 2rem;">📧</div>
-                    <h3>Email Us</h3>
-                    <p>nehoco2026@gmail.com</p>
-                    <p>We respond within 24 hours</p>
-                </div>
-                <div class="contact-info">
-                    <div style="font-size: 2rem;">📞</div>
-                    <h3>Call Us</h3>
-                    <p>Chairperson: 0722 597670</p>
-                    <p>Secretary: 0796 622597</p>
-                </div>
+                <p><strong>Account Number:</strong> NEHOCO + Your Name</p>
+                <p style="margin-top: 10px;">Example: NEHOCO Jane Wanjiku</p>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <h3>🌍 International Donations</h3>
+                <p>Contact us for PayPal, M-Changa, or wire transfer options</p>
+                <a href="#contact" style="display: inline-block; margin-top: 15px; background: #0a2b1a; color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none;">📞 Get Payment Options</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p><strong>New Hope Youth Community Based Organization (NEHOCO)</strong></p>
-            <p>P.O. Box 869-10100, Karatina, Kenya</p>
-            <p>Registered with the Department of Social Development</p>
-            <p style="margin-top: 15px;">💛 Every donation creates opportunity. Every contribution changes a life. 💛</p>
-            <p style="margin-top: 20px;">&copy; 2026 NEHOCO | Empowering Kenya's Youth, Building Tomorrow's Leaders</p>
+<!-- Leadership -->
+<section id="leadership" style="background: #f0f4f0;">
+    <div class="container">
+        <h2 class="section-title">Our Leadership</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-icon">👩‍💼</div>
+                <h3>Eunice Wanjiru Kahoi</h3>
+                <p><strong>Chairperson</strong></p>
+                <p>📞 0722 597670</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👨‍💼</div>
+                <h3>Brian Kikenyi Simiyu</h3>
+                <p><strong>Secretary</strong></p>
+                <p>📞 0796 622597</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👨‍💼</div>
+                <h3>John Maina Kamunyo</h3>
+                <p><strong>Treasurer</strong></p>
+                <p>📞 0706 243036</p>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div style="font-size: 2rem;">📍</div>
+                <h3>Visit Us</h3>
+                <p>Nyana Village, near Rware Primary School</p>
+                <p>Karatina, Kenya</p>
+            </div>
+            <div class="contact-card">
+                <div style="font-size: 2rem;">📧</div>
+                <h3>Email Us</h3>
+                <p>nehoco2026@gmail.com</p>
+                <p>Response within 24 hours</p>
+            </div>
+            <div class="contact-card">
+                <div style="font-size: 2rem;">📞</div>
+                <h3>Call Us</h3>
+                <p>Chairperson: 0722 597670</p>
+                <p>Secretary: 0796 622597</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p><strong>New Hope Youth Community Based Organization (NEHOCO)</strong></p>
+        <p>P.O. Box 869-10100, Karatina, Kenya | Registered with Department of Social Development</p>
+        <p style="margin-top: 15px;">💛 Every donation creates opportunity. Every contribution changes a life. 💛</p>
+        <p style="margin-top: 20px;">&copy; 2026 NEHOCO | Empowering Kenya's Youth, Building Tomorrow's Leaders</p>
+    </div>
+</footer>
+
+<script>
+    // Image Gallery Upload Function
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const files = event.target.files;
+        const gallery = document.getElementById('imageGallery');
+        
+        for(let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if(file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    galleryItem.appendChild(img);
+                    gallery.appendChild(galleryItem);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    });
+
+    // Video Functions
+    function playVideo(url) {
+        const modal = document.getElementById('videoModal');
+        const frame = document.getElementById('videoFrame');
+        
+        // Convert YouTube watch URL to embed URL
+        if(url.includes('youtube.com/watch')) {
+            url = url.replace('watch?v=', 'embed/');
+        }
+        
+        frame.src = url;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('videoModal');
+        const frame = document.getElementById('videoFrame');
+        frame.src = '';
+        modal.style.display = 'none';
+    }
+
+    function addVideo() {
+        const linkInput = document.getElementById('videoLinkInput');
+        const videoUrl = linkInput.value.trim();
+        
+        if(videoUrl) {
+            const videoGrid = document.getElementById('videoGallery');
+            const newVideo = document.createElement('div');
+            newVideo.className = 'video-card';
+            
+            let embedUrl = videoUrl;
+            if(videoUrl.includes('youtube.com/watch')) {
+                embedUrl = videoUrl.replace('watch?v=', 'embed/');
+            }
+            
+            newVideo.innerHTML = `
+                <div class="video-thumb" onclick="playVideo('${embedUrl}')">
+                    ▶️
+                </div>
+                <div class="video-info">
+                    <h4>New Video</h4>
+                    <p>Click to watch</p>
+                </div>
+            `;
+            videoGrid.appendChild(newVideo);
+            linkInput.value = '';
+            alert('Video added successfully!');
+        } else {
+            alert('Please paste a valid video link');
+        }
+    }
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
 </body>
 </html>
